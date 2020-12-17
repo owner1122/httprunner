@@ -1,0 +1,16 @@
+
+name: commentssave api
+base_url: ${ENV(IP)}
+request:
+    url: /mtx/index.php?s=/index/order/commentssave.html
+    method: POST
+    headers:
+        X-Requested-With: "XMLHttpRequest"
+    data:
+        id: $order_id
+        rating[]: '5'
+        content[]: '非常好物美价廉非常好用~(｡≧3≦)ﾉ⌒☆'
+        goods_id[]: '1'
+validate:
+    - eq: ["status_code", 200]
+    - eq: [content.msg, 评论成功]

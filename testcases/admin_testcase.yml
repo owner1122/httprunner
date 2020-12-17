@@ -1,0 +1,12 @@
+
+config:
+    name: "admin_login testcase"
+    base_url: ${ENV(IP)}
+
+teststeps:
+-
+    name: 管理员登录接口测试
+    api: api/admin_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - eq: [content.msg, 登录成功]

@@ -1,0 +1,11 @@
+
+config:
+    name: "login testsuite"
+    base_url: ${ENV(IP)}
+
+testcases:
+-
+    name: 登录接口测试用例
+    testcase: testcases/login_testcase.yml
+    parameters:
+        title-accounts-pwd-expect: ${P(data/login.csv)}

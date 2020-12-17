@@ -1,0 +1,1 @@
+脚本执行方式：在控制台执行命令 hrun testsuites

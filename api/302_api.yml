@@ -1,0 +1,11 @@
+
+name: order_302 api
+base_url: ${ENV(IP)}
+request:
+    url: $jump_url
+    method: get
+#    headers:这个接口可以没有这个消息头
+#        X-Requested-With: "XMLHttpRequest"
+    allow_redirects: False
+validate:
+    - eq: ["status_code", 302] #注意这个状态码是302

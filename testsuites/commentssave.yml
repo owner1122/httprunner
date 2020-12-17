@@ -1,0 +1,9 @@
+
+config:
+    name: "order testsuite"
+    base_url: ${ENV(IP)}
+
+testcases:
+-
+    name: 评论接口测试用例
+    testcase: testcases/commentssave_testcase.yml

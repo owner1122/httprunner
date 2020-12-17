@@ -1,0 +1,47 @@
+
+config:
+    name: "delivery testcase"
+    base_url: ${ENV(IP)}
+
+teststeps:
+-
+    name: 调用登录接口
+    api: api/login_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - eq: [content.msg, 登录成功]
+-
+    name: 调用下订单接口
+    api: api/order_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - eq: [content.msg, 提交成功]
+    extract:
+        jump_url: content.data.jump_url
+        user_id: content.data.order.user_id
+        order_id: content.data.order.id
+-
+    name: 调用302重定向接口
+    api: api/302_api.yml
+    validate:
+        - eq: ["status_code", 302]
+    extract:
+        location_url: headers.Location
+-
+    name: 调用支付接口
+    api: api/pay_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - contains: [content, 支付成功]
+-
+    name: 调用管理员登录接口
+    api: api/admin_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - eq: [content.msg, 登录成功]
+-
+    name: 发货接口测试
+    api: api/delivery_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - eq: [content.msg, 发货成功]

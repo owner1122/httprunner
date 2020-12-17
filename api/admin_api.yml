@@ -1,0 +1,14 @@
+
+name: admin_login api
+base_url: ${ENV(IP)}
+request:
+    url: /mtx/admin.php?s=/admin/login.html
+    method: POST
+    headers:
+        X-Requested-With: "XMLHttpRequest"
+    data:
+        username: shamo
+        login_pwd: 123456
+validate:
+    - eq: ["status_code", 200]
+    - eq: [content.msg, 登录成功]

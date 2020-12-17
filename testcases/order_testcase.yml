@@ -1,0 +1,18 @@
+
+config:
+    name: "order testcase"
+    base_url: ${ENV(IP)}
+
+teststeps:
+-
+    name: 调用登录接口
+    api: api/login_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - eq: [content.msg, 登录成功]
+-
+    name: 下订单接口测试
+    api: api/order_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - eq: [content.msg, 提交成功]

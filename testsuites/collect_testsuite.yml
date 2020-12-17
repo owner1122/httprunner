@@ -1,0 +1,9 @@
+
+config:
+    name: "collect testsuite"
+    base_url: ${ENV(IP)}
+
+testcases:
+-
+    name: 收货接口测试用例
+    testcase: testcases/collect_testcase.yml

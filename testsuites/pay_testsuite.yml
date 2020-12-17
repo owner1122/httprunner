@@ -1,0 +1,9 @@
+
+config:
+    name: "pay testsuite"
+    base_url: ${ENV(IP)}
+
+testcases:
+-
+    name: 付款接口测试用例
+    testcase: testcases/pay_testcase.yml

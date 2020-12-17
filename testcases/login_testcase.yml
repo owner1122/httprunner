@@ -1,0 +1,15 @@
+
+config:
+    name: "login testcase"
+    base_url: ${ENV(IP)}
+
+teststeps:
+-
+#    name: 登录接口测试
+    name: $title
+    api: api/login_api.yml
+    validate:
+        - eq: ["status_code", 200]
+#        - eq: [content.msg, 登录成功]
+        - eq: [content.msg, $expect]
+

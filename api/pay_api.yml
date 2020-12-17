@@ -1,0 +1,11 @@
+
+name: pay api
+base_url: ${ENV(IP)}
+request:
+    url: $location_url
+    method: get
+    headers:
+        X-Requested-With: "XMLHttpRequest"
+validate:
+    - eq: ["status_code", 200]
+    - contains: [content, 支付成功] #注意这个判断条件是包含

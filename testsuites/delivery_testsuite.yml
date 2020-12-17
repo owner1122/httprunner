@@ -1,0 +1,9 @@
+
+config:
+    name: "delivery testsuite"
+    base_url: ${ENV(IP)}
+
+testcases:
+-
+    name: 发货接口测试用例
+    testcase: testcases/delivery_testcase.yml
